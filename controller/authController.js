@@ -2,11 +2,11 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../model/userModel");
 const BlacklistedToken = require("../model/blackListTokenModel"); // Needed for logout
-// const {
-//   forgotPasswordMail,
-//   generatePasswordResetMail,
-// } = require("../../utilities/mailGenerator");
-// const sendMail = require("../../utilities/sendMail");
+const {
+  forgotPasswordMail,
+  generatePasswordResetMail,
+} = require("../utilities/mailGenerator");
+const sendMail = require("../utilities/sendMail");
 
 // Helper to generate refresh token
 const generateRefreshToken = (userId) => {
@@ -269,7 +269,7 @@ const forgotPassword = async (req, res) => {
     const html = forgotPasswordMail(foundUser.name || "Customer", resetToken);
     await sendMail(
       foundUser.email,
-      "Reset Your Password - WearWithPride",
+      "Reset Your Password - Alex Okorie Foundation",
       html,
     );
 
@@ -326,7 +326,11 @@ const resetPassword = async (req, res) => {
 
     // Send confirmation email
     const html = generatePasswordResetMail(foundUser.name || "Customer");
-    await sendMail(foundUser.email, "Password Reset - WearWithPride", html);
+    await sendMail(
+      foundUser.email,
+      "Password Reset - Alex Okorie Foundation",
+      html,
+    );
 
     return res.status(200).json({
       message: "Password reset successfully",
