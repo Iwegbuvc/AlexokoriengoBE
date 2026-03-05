@@ -96,8 +96,7 @@ const loginUser = async (req, res) => {
     }
 
     const refreshToken = generateRefreshToken(user._id);
-    user.refreshToken = refreshToken;
-    await user.save();
+    await User.findByIdAndUpdate(user._id, { refreshToken });
 
     const token = jwt.sign(
       { id: user._id, role: user.role },
