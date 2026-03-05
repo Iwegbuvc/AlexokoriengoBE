@@ -23,6 +23,7 @@ app.use(
       "http://127.0.0.1:5500",
       "https://ngo-platform-a5xw.onrender.com",
       "https://alexokoriengofoundation.vercel.app",
+      "https://www.alexokoriengo.com",
     ],
     credentials: true,
   }),
