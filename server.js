@@ -7,6 +7,7 @@ const userRoutes = require("./route/userRoutes");
 const sliderImageRoutes = require("./route/sliderImageRoutes");
 const testimonialRoutes = require("./route/testimonialRoutes");
 const projectRoutes = require("./route/projectRoutes");
+const statRoutes = require("./route/statRoutes");
 
 const app = express();
 
@@ -33,7 +34,7 @@ app.use("/api/auth", userRoutes);
 app.use("/api/slider-images", sliderImageRoutes);
 app.use("/api/testimonials", testimonialRoutes);
 app.use("/api/projects", projectRoutes);
-
+app.use("/api/stats", statRoutes);
 const PORT = process.env.PORT || 9000;
 
 app.listen(PORT, () => {
