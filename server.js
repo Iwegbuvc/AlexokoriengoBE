@@ -10,6 +10,8 @@ const projectRoutes = require("./route/projectRoutes");
 const statRoutes = require("./route/statRoutes");
 const contactRoutes = require("./route/contactRoutes");
 
+const newsletterRoutes = require("./route/newsletterRoutes");
+
 const app = express();
 
 app.set("trust proxy", 1);
@@ -37,6 +39,7 @@ app.use("/api/testimonials", testimonialRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/stats", statRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/newsletters", newsletterRoutes);
 const PORT = process.env.PORT || 9000;
 
 app.listen(PORT, () => {
