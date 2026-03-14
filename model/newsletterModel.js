@@ -13,6 +13,9 @@ const newsletterSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  image: {
+    type: String, // URL to the uploaded image
+  },
   createdAt: {
     type: Date,
     default: Date.now,
